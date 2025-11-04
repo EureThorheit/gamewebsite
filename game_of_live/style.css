@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.slider-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    opacity: 70%;
+    z-index: 10;
+}
+
+.home {
+    position: fixed;
+    top: 10px;
+    left: 230px;
+    z-index: 10;
+
+    background-color: #00bfff;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.1rem 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.home:hover {
+  background-color: #0099cc;
+  transform: scale(1.05);
+}
+
+.home:active {
+  transform: scale(0.95);
+  background-color: #007fa3;
+}
+
+#sliderValue {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    display: block;
+}

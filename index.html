@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Auswahl</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>
+        Spielesammlung
+    </h1>
+
+    <div class="description">
+        <p>
+            Ich habe eine Website mit drei Spielen erstellt. <br>
+        <ol>
+            <li>Tetris</li>
+            <li>Reversi</li>
+            <li>Conways Game of Life</li>
+        </ol>
+        Ich habe alle Spiele in Rust geschrieben und mit wasm (Web Assembly) in den Browser gebracht. Aber ich habe
+        nicht
+        nur wasm verwendet, sondern auch Javascript für das Zeichnen auf einem Canvaselement und dem Verarbeiten von
+        Tastatureingaben.
+        <b>Durch das Verwenden von wasm kann man die Seiten nicht mehr im Browser direkt laden.</b> <br>
+        Am einfachsten ist es, einen Server zu erstellen, der wasm ausführen kann. Es gibt verschiedene Möglichkeiten
+        einen
+        Server zu erstellen doch ein python local host server ist am
+        einfachsten. <br> Mit dem python befehl:
+        <p class="usage">
+            python -m http.server 8080
+        </p>
+
+        kann man einen local host server erstellen.
+        </p>
+    </div>
+
+    <div class="game-container">
+        <a href="tetris/" class="game-card">
+            <img src="assets/textures/tetris.png" alt="Game 1">
+            <div class="title">Tetris</div>
+        </a>
+
+        <a href="reversi/" class="game-card">
+            <img src="assets/textures/reversi.png" alt="Game 2" class="reversi">
+            <div class="title">Reversi</div>
+        </a>
+
+        <a href="game_of_live/" class="game-card">
+            <img src="assets/textures/game_of_life.png" alt="Game 3">
+            <div class="title">Game of Life</div>
+        </a>
+    </div>
+
+    <div class="game-description">
+        <div>
+            <p>In Tetris muss man die fallenden Blöcke in einer Reihe anordnen, dass sie ausgefüllt wird. Wenn eine
+                Reihe gefüllt ist, leert sie sich und man bekommt Punkte. Zum bewegen der fallenden Blöcke nutzt man:
+                <b>WASD</b> oder <b>Pfeiltasten</b> und zum Rotieren nutzt man: <b>QE</b>
+            </p>
+        </div>
+        <div>
+            <p>Reversi hat ein 8x8 Felder Spielbrett. Es gibt zwei Farben <red>Rot</red> und <green>Grün</green>. Die
+                Spieler setzen
+                nacheinander auf das Spielbrett, sodass mindestens ein Stein der gegnerischen Farbe zwischen seinen
+                eigenen Steinen liegt. Die steine die beim Zug zwischen den eigenen Steinen und dem neugesetzten stein
+                liegt werden umgedreht.
+                <a href="https://de.wikipedia.org/wiki/Othello_(Spiel)">Hier eine ausführliche Anleitung</a> <br>
+                <input type="checkbox" name="bot" value="1" id="bot">
+                <label for="bot">gegen einen Bot spielen</label>
+            </p>
+        </div>
+        <div>
+            <p>Game of Life ist eine Simulation oder ein Nullspieler spiel, welches auf einfachen Regeln basiert aber
+                tortzdem komplex ist.</p>
+        </div>
+    </div>
+
+    <script type="module" src="main.js" defer></script>
+
+</body>
+
+</html>

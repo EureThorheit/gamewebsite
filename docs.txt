@@ -1,0 +1,4 @@
+Man muss einen Local host server für WebAssembly Starten am einfachsten in python mit dem Befehl: python3 -m http.server 8080
+Dann verbindet man sich mit local host mit dieser IP: http://localhost:8080/ damit die tetris website geladen wird
+Bewegen kann man sich mit pfeiltasten oder wasd
+Drehen kann man sich mir 'q' und 'e'

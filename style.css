@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #1a1a1a);
+    background-size: 100% 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(white 2px, transparent 1px);
+    background-size: 50px 50px;
+    animation: drift 7s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes drift {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100px 100px;
+    }
+}
+
+h1 {
+    color: white;
+    font-size: 30pt;
+}
+
+.description {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    max-width: 50%;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    color: white;
+}
+
+.description b {
+    color: red;
+}
+
+.usage {
+    font-size: 18pt;
+}
+
+.game-description {
+    position: relative;
+
+    display: flex;
+    gap: 70px;
+    flex-direction: row;
+    flex-direction: row;
+
+    color: white;
+    margin-top: 30px;
+}
+
+.game-description div {
+    width: 300px;
+    height: auto;
+
+    background-color: #222;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.game-description p {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: auto;
+    font-size: 15pt;
+}
+
+.game-description red {
+    color: red;
+}
+
+.game-description green {
+    color: green;
+}
+
+/* Container für alle Spiele */
+.game-container {
+    display: flex;
+    gap: 70px;
+    flex-direction: row;
+}
+
+/* Karten-Design */
+.game-card {
+    position: relative;
+    background-color: #222;
+    border-radius: 15px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 300px;
+    width: 300px;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Bild-Container für bessere Kontrolle */
+.game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom center;
+    display: block;
+    align-self: center;
+}
+
+/* Reversi brauchte anderes format */
+.game-card .reversi {
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    align-self: top;
+}
+
+.game-card .title {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px;
+    background-color: #2e2e2e;
+}
+
+/* Responsive Verbesserungen */
+@media (max-width: 600px) {
+    .game-card {
+        height: 250px;
+    }
+
+    .game-card img {
+        max-height: 150px;
+    }
+}
