@@ -1,0 +1,15 @@
+{
+  "name": "game_of_live",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "game_of_live_bg.wasm",
+    "game_of_live.js",
+    "game_of_live.d.ts"
+  ],
+  "main": "game_of_live.js",
+  "types": "game_of_live.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
