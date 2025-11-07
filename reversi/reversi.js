@@ -44,7 +44,7 @@ let color = CellState.Red;
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // clear
-    ctx.fillStyle = "#00041cff";
+    ctx.fillStyle = "#69d4ffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let x = 0; x < size * size; x++) {
@@ -55,30 +55,30 @@ function draw() {
 
         ctx.beginPath();
         ctx.arc(board_pos_x + col * cell_size * 2, board_pos_y + row * cell_size * 2, cell_size, 0, Math.PI * 2, false);
-        ctx.fillStyle = 'blue';
+        ctx.fillStyle = 'brown';
         ctx.fill();
         ctx.closePath();
 
         ctx.beginPath();
         if (cell.state == CellState.Green) {
             ctx.arc(board_pos_x + col * cell_size * 2, board_pos_y + row * cell_size * 2, cell_size, 0, Math.PI * 2, false);
-            ctx.fillStyle = 'green';
+            ctx.fillStyle = 'black';
         }
 
         if (cell.state == CellState.Red) {
             ctx.arc(board_pos_x + col * cell_size * 2, board_pos_y + row * cell_size * 2, cell_size, 0, Math.PI * 2, false);
-            ctx.fillStyle = 'red';
+            ctx.fillStyle = 'white';
         }
         ctx.fill();
         ctx.closePath();
 
         ctx.font = cell_size + "pt Arial";
         if (color == CellState.Green) {
-            ctx.fillStyle = "green";
-            ctx.fillText("Green's turn", canvas.width / 30, canvas.height / 10);
+            ctx.fillStyle = "black";
+            ctx.fillText("blacks's turn", canvas.width / 30, canvas.height / 10);
         } else {
-            ctx.fillStyle = "red";
-            ctx.fillText("Red's turn", canvas.width / 30, canvas.height / 10);
+            ctx.fillStyle = "white";
+            ctx.fillText("white's turn", canvas.width / 30, canvas.height / 10);
         }
     }
 }
@@ -99,6 +99,10 @@ document.addEventListener("mouseup", () => {
 });
 
 let turn = 0;
+
+localStorage.setItem("red", board.cells_of_color(CellState.Red));
+localStorage.setItem("green", board.cells_of_color(CellState.Green));
+localStorage.setItem("won", "You have cancelled the game");
 
 function gameLoop() {
 
@@ -166,8 +170,24 @@ function gameLoop() {
         //     }
         // }
 
+        localStorage.setItem("red", board.cells_of_color(CellState.Red));
+        localStorage.setItem("green", board.cells_of_color(CellState.Green));
         requestAnimationFrame(gameLoop); // schedule next frame
     } else {
+        let red_cells = board.cells_of_color(CellState.Red);
+        let green_cells = board.cells_of_color(CellState.Green);
+
+        if (red_cells == green_cells) {
+            localStorage.setItem("won", "Unentschieden");
+        }
+
+        if (red_cells > green_cells) {
+            localStorage.setItem("won", "Weiss hat gewonnen");
+        }
+
+        if (red_cells < green_cells) {
+            localStorage.setItem("won", "Schwarz hat gewonnen");
+        }
         window.location.href = "over.html";
     }
 }
